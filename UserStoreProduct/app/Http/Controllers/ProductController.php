@@ -84,6 +84,6 @@ class ProductController extends Controller
     }
 
     public function getProducts(Request $request) {
-        return response()->json(Product::all());
+        return response()->json(Product::with('user')->get());
     }
 }
