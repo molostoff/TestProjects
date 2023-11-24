@@ -13,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'v1', 'middleware' => 'web'], function(){
+
+/*     Route::get('/user', function( Request $request ){
+        return $request->user();
+    });
+
+ */    Route::get('/', function () {
+        return view('welcome');
+    });
+    $a = 0;
+    Route::get('/owners', 'App\Http\Controllers\OwnerController@getOwners');
+
+    Route::get('/shops', 'App\Http\Controllers\ShopController@getShops');
+
+    Route::get('/products', 'App\Http\Controllers\ProductController@getProducts');
 });

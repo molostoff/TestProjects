@@ -82,4 +82,8 @@ class ShopController extends Controller
     {
         //
     }
+
+    public function getShops(Request $request) {
+        return response()->json(Shop::all());
+    }
 }

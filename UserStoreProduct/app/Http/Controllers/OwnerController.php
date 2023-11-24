@@ -82,4 +82,8 @@ class OwnerController extends Controller
     {
         //
     }
+
+    public function getOwners(Request $request) {
+        return response()->json(Owner::all());
+    }
 }
